@@ -2,7 +2,6 @@ package cwiczenie_1;
 
 import java.text.DecimalFormat;
 
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 import org.jfree.chart.ChartFactory;
@@ -17,7 +16,6 @@ public class Chart {
 	
 	public Chart(){
 		
-
 	}
 	
 	public Chart(JTable tabelka){
@@ -27,10 +25,8 @@ public class Chart {
 		
 		
 			
-			for(int i =1; i < tabelka.getRowCount(); i++)
-			{
-				for(int j = 0; j < tabelka.getColumnCount(); j++)
-				{
+			for(int i =1; i < tabelka.getRowCount(); i++){
+				for(int j = 0; j < tabelka.getColumnCount(); j++){
 					
 					wartosc = Integer.parseInt(tabelka.getValueAt(i, j).toString());
 					if(wartosc>0)
@@ -38,19 +34,10 @@ public class Chart {
 					
 				}
 			}
-			
-		
-	
-		
-		
-		
-		
-//				data.setValue("Category 1", -20);
-//				data.setValue("Category 2", 27.9);
-//				data.setValue("Category 3", 79.5);
+
 				// create a chart...
 				JFreeChart chart = ChartFactory.createPieChart(
-										"Sample Pie Chart",
+										"Wykres ko³owy",
 										data,
 										false, // legend?
 										true, // tooltips?

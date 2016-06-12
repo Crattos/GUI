@@ -64,6 +64,7 @@ import org.freixas.jcalendar.DateListener;
 import org.freixas.jcalendar.JCalendarCombo;
 
 import com.l2fprod.common.swing.JButtonBar;
+import com.l2fprod.common.swing.JOutlookBar;
 import com.l2fprod.common.swing.JTipOfTheDay;
 import com.l2fprod.common.swing.tips.DefaultTip;
 import com.l2fprod.common.swing.tips.DefaultTipModel;
@@ -465,9 +466,8 @@ public class GUI extends JFrame
 	 * Metoda tworz±ca obiekt typu JButtonBar i JToggleButton. 
 	 * @return zwraca obiekt typu JButtonBar
 	 */
-	private JButtonBar panel_nawigacyjny_jbb()
-	{
-		JButtonBar btnBar = new JButtonBar();
+	private JOutlookBar panel_nawigacyjny_jbb(){
+		JOutlookBar btnBar = new JOutlookBar();
 		ButtonGroup btnGroup = new ButtonGroup();
 		JToggleButton kaneldarz_btn = new JToggleButton("Kaneldarz",new ImageIcon("kalendarz.png"));
 		//ikonki kalendarz: https://www.iconfinder.com/icons/173169/calendar_icon#size=64
@@ -495,18 +495,58 @@ public class GUI extends JFrame
 		});
 		
 		btnBar.setBounds(13, 10, 100, 210);
-		btnBar.setOrientation(JButtonBar.VERTICAL);
+	
+		btnBar.addTab("Tabela", tabela_btn);
+		btnBar.addTab("Kalendarz",kaneldarz_btn );
 		
-
-		btnBar.add(tabela_btn);
-		btnGroup.add(tabela_btn);
-
-		btnBar.add(kaneldarz_btn);
-		btnGroup.add(kaneldarz_btn);
-		
+			
 		btnBar.setVisible(true);
 		return btnBar;
+
 	}
+	
+//	private JButtonBar panel_nawigacyjny_jbb()
+//	{
+//		JButtonBar btnBar = new JButtonBar();
+//		ButtonGroup btnGroup = new ButtonGroup();
+//		JToggleButton kaneldarz_btn = new JToggleButton("Kaneldarz",new ImageIcon("kalendarz.png"));
+//		//ikonki kalendarz: https://www.iconfinder.com/icons/173169/calendar_icon#size=64
+//		JToggleButton tabela_btn = new JToggleButton("Tabela",new ImageIcon("tabelka.png"));
+//		// ikonki tabela: https://www.iconfinder.com/icons/8898/document_excel_spreadsheet_table_icon#size=64
+//
+//		tabela_btn.addActionListener(new ActionListener()
+//		{
+//			public void actionPerformed(ActionEvent arg0) 
+//			{
+//				widok_tabeli.setVisible(true);
+//				widok_kalendarza.setVisible(false);
+//
+//			}
+//		});
+//		
+//		kaneldarz_btn.addActionListener(new ActionListener()
+//		{
+//			public void actionPerformed(ActionEvent arg0) 
+//			{
+//				widok_tabeli.setVisible(false);
+//				widok_kalendarza.setVisible(true);
+//
+//			}
+//		});
+//		
+//		btnBar.setBounds(13, 10, 100, 210);
+//		btnBar.setOrientation(JButtonBar.VERTICAL);
+//		
+//
+//		btnBar.add(tabela_btn);
+//		btnGroup.add(tabela_btn);
+//
+//		btnBar.add(kaneldarz_btn);
+//		btnGroup.add(kaneldarz_btn);
+//		
+//		btnBar.setVisible(true);
+//		return btnBar;
+//	}
 	
 	
 	/**
