@@ -1,0 +1,104 @@
+package cwiczenie_1;
+
+import javax.swing.table.AbstractTableModel;
+
+
+/** 
+* Klasa tabelka_M definiuje metody tabeli abstrakcyjnej
+* @author Patryk Miler	 	
+* @version 1.0	16/05/2016
+* -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
+*/
+
+public class tabelka_M extends AbstractTableModel
+{
+	private String[] cols = {"1","2","3","4","5"};
+	private Object[][] rows = {
+							{1,2,3,4,5},
+							{0,0,0,0,0},
+							{0,0,0,0,0},
+							{0,0,0,0,0},
+							{0,0,0,0,0},
+							{0,0,0,0,0}
+							};
+	/**
+	 * Konstruktor domyœlny
+	 */
+	public tabelka_M()//konstruktor
+	{
+
+	}
+	
+	
+	/**
+	 * Metoda odpowiedzalna za zwrócenie elementu z obiektu rows dwuelementowego
+	 * @param r typu int jest odpowiedzalny za wyznaczenie wiersza
+	 * @param c typu int jest odpowiedzalny za wyznaczenie kolumny
+	 * @return zwraca wartoœæ obiektu rows jako typ Object
+	 */
+	public Object getValueAt(int r, int c)
+	{
+		//System.out.println("Wynik: "+rows[r][c].toString());
+		return rows[r][c];
+	}
+	
+	
+	/**
+	 * Metoda odpowiedzalna za zwrócenie iloœci kolumn w tabeli
+	 * @return zwraca wartoœæ typu int
+	 */
+	public int getColumnCount()
+	{
+		return cols.length;
+	}
+	
+	
+	/**
+	 * Metoda odpowiedzalna za zwrócenie iloœci wierszy w tabeli
+	 * @return zwraca wartoœæ typu int
+	 */
+	public int getRowCount()
+	{
+		return rows.length;
+	}
+
+	
+	/**
+	 * Metoda odpowiedzalna za zwrócenie nazwy kolumny
+	 * @param c typu int jest odpowiedzalny za wyznaczenie numeru kolumny
+	 * @return zwraca wartoœæ typu String
+	 */
+	public String getColumnName(int c)
+	{
+		return cols[c];
+	}
+
+	
+	/**
+	 * Metoda odpowiedzalna za ustawienie wartoœci w tabeli
+	 * @param value obiekt typu Object oznacza wartoœæ
+	 * @param r typu int oznacza numer wiersza
+	 * @param c typu int oznacza numer kolumny
+	 */
+	public void setValueAt(Object value, int r, int c)
+	{
+		rows[r][c] = value.toString();
+		fireTableCellUpdated(r, c);
+	}
+	
+	
+	/**
+	 * Metoda odpowiedzalna za zwrócenie wartoœci czy podany element jest edytowalny
+	 * @param r typu int oznacza numer wiersza
+	 * @param c typu int oznacza numer kolumny
+	 * @return zwraca wartoœæ typu boolean
+	 */
+	public boolean isCellEditable(int r, int c)
+	{
+		//r - row
+		//c - column
+		return false;
+	}
+	
+	
+}

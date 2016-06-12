@@ -1,0 +1,161 @@
+package cwiczenie_1;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import org.apache.log4j.*;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+/** 
+* Klasa lista_M definiuje Listenery czyli tzw "s³uchacze"
+* @author Patryk Miler	 	
+* @version 1.0	16/05/2016
+* -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
+*/
+
+public class tabelka_C 
+{
+	GUI VIEW;
+	tabelka_M MODEL;
+	Logger logger = Logger.getLogger("cwiczenie_1.tabelka_C");
+	
+	/**
+	 * Konstruktor parametrowy jest odpowiedzalny za dodanie kontrolek do tabeli
+	 * @param VIEW obiekt klasy GUI 
+	 * @param MODEL obiekt klasy tabelka_M
+	 */
+	public tabelka_C(final GUI VIEW, final tabelka_M MODEL)
+	{
+		this.VIEW = VIEW;
+		this.MODEL = MODEL;
+		
+		this.VIEW.dodaj_do_tabeli_jbn(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				// TODO Auto-generated method stub
+				
+				String odczyt_kolumny;
+				String odczyt_wiersza;
+				Integer liczba;
+				odczyt_kolumny = VIEW.nr_kolumny_sp.getValue().toString();
+				odczyt_wiersza = VIEW.nr_wiersza_sp.getValue().toString();
+				try
+				{
+					liczba = Integer.parseInt(VIEW.wprowadz_liczbe.getText());
+					MODEL.setValueAt(liczba.toString(), Integer.valueOf(odczyt_wiersza.toString()), Integer.valueOf(odczyt_kolumny.toString())-1);
+				}
+				catch(Exception ex)
+				{
+					
+					logger.error("Blad podczas wprowadzania liczby do tabeli");
+					//MojLoger.writeLog("ERROR", "Blad podczas wprowadzania liczby do tabeli");
+					JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
+				}
+			}
+		});
+		
+		this.VIEW.wyzeruj_do_tabeli_jbn(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				for(int i =1; i < MODEL.getRowCount(); i++)
+				{
+					for(int j = 0; j < MODEL.getColumnCount(); j++)
+					{
+						MODEL.setValueAt("0", Integer.valueOf(i), Integer.valueOf(j));
+					}
+				}
+				
+			}
+		});
+
+		this.VIEW.wypelnij_do_tabeli_jbn(new ActionListener()
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				try
+				{
+					for(int i =1; i < MODEL.getRowCount(); i++)
+					{
+						for(int j = 0; j < MODEL.getColumnCount(); j++)
+						{
+							MODEL.setValueAt(Integer.parseInt(VIEW.wprowadz_liczbe.getText()), Integer.valueOf(i), Integer.valueOf(j));
+						}
+						
+					}
+				}
+				catch(Exception ex)
+				{
+					logger.error("Blad podczas wype³niania tabeli podan¹ wartoœci¹");
+					//MojLoger.writeLog("ERROR", "Blad podczas wypeï¿½niania tabeli podanï¿½ wartoï¿½ciï¿½");
+					JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
+					
+				}
+				
+			}
+		});
+		
+		this.VIEW.zapis_do_tabeli_jbn(new ActionListener() 
+		{
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter txtFilter = new FileNameExtensionFilter("pliki txt(*.txt)", "txt");
+				fileChooser.addChoosableFileFilter(txtFilter);
+				fileChooser.setFileFilter(txtFilter);
+				
+				if (fileChooser.showSaveDialog(VIEW) == JFileChooser.APPROVE_OPTION) 
+				{
+				//  File file = fileChooser.getSelectedFile();
+				  String sciezka_pliku = fileChooser.getSelectedFile().getAbsolutePath();
+				  if(!(sciezka_pliku.contains(".txt")))
+				  {
+					  sciezka_pliku=sciezka_pliku+".txt";
+				  }
+				  else
+				  {
+					  //nic nie rób
+				  }
+				  
+				  try
+					{
+					  
+						BufferedWriter out = new BufferedWriter(new FileWriter(sciezka_pliku));
+						for(int i =1; i < 6; i++)
+						{
+							for(int j=0;j<5;j++)
+							{
+								out.write(MODEL.getValueAt(i, j).toString());
+								out.newLine();
+							}
+						}
+			            out.close();
+
+			            JOptionPane.showMessageDialog(VIEW, "Dane zosta³y zapisane do pliku pod nazw¹½ "+sciezka_pliku, "Zapisz", JOptionPane.INFORMATION_MESSAGE);
+					}
+					catch(Exception ex)
+					{
+						logger.error("B³¹d podczas zapisu wartoœci tabeli do pliku typu .txt");
+						//MojLoger.writeLog("ERROR", "Bï¿½ï¿½d podczas zapisu wartoï¿½ci tabeli do pliku typu .txt");
+						JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
+					}
+				}
+				
+			}
+		});
+
+	}
+}

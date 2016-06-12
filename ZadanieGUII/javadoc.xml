@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" additionalparam="-encoding UTF-8 -charset UTF-8 -docencoding UTF-8 -encoding UTF-8 -charset UTF-8 -docencoding UTF-8" author="true" classpath="C:\Program Files\Java\jre7\lib\l2fprod-common-all.jar;C:\Program Files\Java\jre7\lib\l2fprod-common-buttonbar.jar;src/loger;C:\Users\Gee\Desktop\log4j-1.2.11.jar;C:\Program Files\Java\jre7\lib\jcalendar.jar" destdir="doc" doctitle="Raport Kalkulator" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="true" notree="true" source="1.7" sourcefiles="src/cwiczenie_1/lista_M.java,src/cwiczenie_1/tabelka_C.java,src/cwiczenie_1/GUI.java,src/cwiczenie_1/tabelka_M.java,src/cwiczenie_1/Loger.java" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
