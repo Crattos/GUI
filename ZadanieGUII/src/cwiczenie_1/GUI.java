@@ -70,6 +70,7 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 
 //Testowanie GITa
 //Dodatkowy kod
+//Jeszcze jeden
 
 /** 
 * Klasa GUI definiujaca centralny i dolny panel 
