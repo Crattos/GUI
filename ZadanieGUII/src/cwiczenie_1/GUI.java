@@ -68,7 +68,7 @@ import com.l2fprod.common.swing.JTipOfTheDay;
 import com.l2fprod.common.swing.tips.DefaultTip;
 import com.l2fprod.common.swing.tips.DefaultTipModel;
 
-
+//Testowanie GITa
 
 /** 
 * Klasa GUI definiujaca centralny i dolny panel 
