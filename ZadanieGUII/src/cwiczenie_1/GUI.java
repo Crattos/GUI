@@ -69,6 +69,7 @@ import com.l2fprod.common.swing.tips.DefaultTip;
 import com.l2fprod.common.swing.tips.DefaultTipModel;
 
 //Testowanie GITa
+//Dodatkowy kod
 
 /** 
 * Klasa GUI definiujaca centralny i dolny panel 
@@ -136,16 +137,16 @@ public class GUI extends JFrame
 	
 
 	//static tabelka_M m;
-	//Powiadomienie przy zamykaniu okna "Czy zamkn¹æ½ program?"
+	//Powiadomienie przy zamykaniu okna "Czy zamkn±æ½ program?"
 	
 	/**
-	 * Metoda odpowiedzalna za wyœwietlenie komunikatu dotycz¹cego zamkniêcia aplikacji
+	 * Metoda odpowiedzalna za wy¶wietlenie komunikatu dotycz±cego zamkniêcia aplikacji
 	 */
 	private void Zamykanie_Okna()//zrobione
 	{
 		Object[] Przyciski_wyboru = {"Tak","Nie"};
 		
-		int value = JOptionPane.showOptionDialog(this, "Czy zamkn¹æ?", "Potwierdz zamkniêcie",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, Przyciski_wyboru, Przyciski_wyboru[0]);
+		int value = JOptionPane.showOptionDialog(this, "Czy zamkn±æ?", "Potwierdz zamkniêcie",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, Przyciski_wyboru, Przyciski_wyboru[0]);
 		if(value == JOptionPane.YES_OPTION)
 		{
 
@@ -162,7 +163,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "ON" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "ON" w obiekcie typu JTextField
 	 * @param status zmienna typu JTextField
 	 */
 	private void StatusON(JTextField status)
@@ -172,7 +173,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "OFF" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "OFF" w obiekcie typu JTextField
 	 * @param status zmienna typu JTextField
 	 */
 	private void StatusOFF(JTextField status)
@@ -182,7 +183,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "Pytanie o zamkniecie" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "Pytanie o zamkniecie" w obiekcie typu JTextField
 	 * @param info zmienna typu JTextField
 	 */
 	private void InfoClosing(JTextField info)
@@ -192,7 +193,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "Start Aplikacji" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "Start Aplikacji" w obiekcie typu JTextField
 	 * @param info zmienna typu JTextField
 	 */
 	private void InfoOpen(JTextField info)
@@ -204,7 +205,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "Aktywne okienko" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "Aktywne okienko" w obiekcie typu JTextField
 	 * @param info zmienna typu JTextField
 	 */
 	private void InfoActive(JTextField info)
@@ -214,7 +215,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "Nie aktywne okienko" w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "Nie aktywne okienko" w obiekcie typu JTextField
 	 * @param info zmienna typu JTextField
 	 */
 	private void InfoDeactive(JTextField info)
@@ -224,7 +225,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda ustawiaj¹ca napis "Okno zminimalizowane w obiekcie typu JTextField
+	 * Metoda ustawiaj±ca napis "Okno zminimalizowane w obiekcie typu JTextField
 	 * @param info zmienna typu JTextField
 	 */
 	private void InfoIconified(JTextField info)
@@ -234,9 +235,9 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca obiekt typu JMenu
-	 * @param nazwa zmienna okreœlaj¹ca nazwê 
-	 * @param skrot_klawiszowy zmienna okreœlaj¹ca klawisz skrótu
+	 * Metoda tworz±ca obiekt typu JMenu
+	 * @param nazwa zmienna okre¶laj±ca nazwê 
+	 * @param skrot_klawiszowy zmienna okre¶laj±ca klawisz skrótu
 	 * @return zwraca obiekt typu JMenu
 	 */
 	private JMenu Tworzenie_JMenu(String nazwa, int skrot_klawiszowy)
@@ -248,8 +249,8 @@ public class GUI extends JFrame
 
 	
 	/**
-	 * Metoda tworz¹ca obiekt typu JMenuItem
-	 * @param nazwa zmienna okreœlaj¹ca nazwê 
+	 * Metoda tworz±ca obiekt typu JMenuItem
+	 * @param nazwa zmienna okre¶laj±ca nazwê 
 	 * @return zwraca obiekt typu JMenuItem
 	 */
 	private JMenuItem Tworzenie_JMenuItem(String nazwa)
@@ -261,7 +262,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpowiedzalna za nadanie s³uchaczy dla wszystkich obiektów JMenuItem 
-	 * które s¹ dodane do obiektu JMenu "Plik"
+	 * które s± dodane do obiektu JMenu "Plik"
 	 */
 	private void JMenuItem_Plik()//zrobione
 	{
@@ -309,7 +310,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpowiedzalna za nadanie s³uchaczy dla wszystkich obiektów JMenuItem 
-	 * które bêd¹ dodane do obiektu JMenu "Edytuj"
+	 * które bêd± dodane do obiektu JMenu "Edytuj"
 	 */
 	private void JMenuItem_Edytuj()//zrobione
 	{
@@ -363,7 +364,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpowiedzalna za nadanie s³uchaczy dla wszystkich obiektów w JMenuItem 
-	 * które bêd¹ dodane do obiektu JMenu "Obliczenia"
+	 * które bêd± dodane do obiektu JMenu "Obliczenia"
 	 */
 	private void JMenuItem_Obliczenia()//zrobione
 	{
@@ -380,7 +381,7 @@ public class GUI extends JFrame
 		});
 		
 		
-		srednia_JMenuItem = Tworzenie_JMenuItem("Œrednia liczb");
+		srednia_JMenuItem = Tworzenie_JMenuItem("¦rednia liczb");
 		srednia_JMenuItem.addActionListener(new ActionListener() 
 		{
 			
@@ -428,7 +429,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpowiedzalna za nadanie s³uchaczy dla wszystkich obiektów w JMenuItem 
-	 * które bêd¹ dodane do obiektu JMenu "Pomoc"
+	 * które bêd± dodane do obiektu JMenu "Pomoc"
 	 */
 	private void JMenuItem_Pomoc()
 	{
@@ -462,7 +463,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca obiekt typu JButtonBar i JToggleButton. 
+	 * Metoda tworz±ca obiekt typu JButtonBar i JToggleButton. 
 	 * @return zwraca obiekt typu JButtonBar
 	 */
 	private JButtonBar panel_nawigacyjny_jbb()
@@ -510,8 +511,8 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca obiekt typu JCalendarCombo. 
-	 * @param zapisz_do_jta do zmiennej bêd¹ wyœwietlane komunikaty podczas zmiany daty
+	 * Metoda tworz±ca obiekt typu JCalendarCombo. 
+	 * @param zapisz_do_jta do zmiennej bêd± wy¶wietlane komunikaty podczas zmiany daty
 	 * @return zwraca obiekt typu JCalendarCombo
 	 */
 	private JCalendarCombo utworz_kalendarz(final JTextArea zapisz_do_jta)
@@ -548,7 +549,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca porady dnia.
+	 * Metoda tworz±ca porady dnia.
 	 */
 	private void porady_dnia()
 	{
@@ -566,7 +567,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca obiekt typu JButton oraz zadanie jemu s³uchacza. 
+	 * Metoda tworz±ca obiekt typu JButton oraz zadanie jemu s³uchacza. 
 	 * @return zwraca obiekt typu JButton
 	 */
 	private JButton obliczenia()
@@ -597,17 +598,17 @@ public class GUI extends JFrame
 			                     
 			            case 2:
 			            	srednia_elementow(tabelka,uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("Œrednia elementów wynosi: "+srednia_elementow(tabelka)+"\n");
+			            	//uzyskany_rezultat_ta.append("¦rednia elementów wynosi: "+srednia_elementow(tabelka)+"\n");
 			                break;
 			                
 			            case 3:
 			            	maksimum(tabelka, uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("Najwiêksza wartoœæ wynosi: "++"\n");
+			            	//uzyskany_rezultat_ta.append("Najwiêksza warto¶æ wynosi: "++"\n");
 			                break;
 			                
 			            case 4:
 			            	minimum(tabelka, uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("Najmniejsza wartoœæ wynosi: "+minimum(tabelka)+"\n");
+			            	//uzyskany_rezultat_ta.append("Najmniejsza warto¶æ wynosi: "+minimum(tabelka)+"\n");
 			                break;
 			                     
 			            default: 
@@ -633,7 +634,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca GUI ca³ej aplikacji. 
+	 * Metoda tworz±ca GUI ca³ej aplikacji. 
 	 * @param m obiekt który przechowuje funkcje tabeli utworzonej w aplkacji.
 	 */
 	private void utworz(tabelka_M m)//zrobione
@@ -647,12 +648,12 @@ public class GUI extends JFrame
 		menubar.add(Plik_JMenu);
 		JMenuItem_Plik();
 		
-		Edytuj_JMenu = Tworzenie_JMenu("Edytuj", 69);//wywo³uje metode która uwtorzy obiekt JMenu pod nazw¹ "Edytuj" ze skrótem klawiszowym ca³oœæ zapisuje w obiekcie "Edytuj_JMenu"
+		Edytuj_JMenu = Tworzenie_JMenu("Edytuj", 69);//wywo³uje metode która uwtorzy obiekt JMenu pod nazw± "Edytuj" ze skrótem klawiszowym ca³o¶æ zapisuje w obiekcie "Edytuj_JMenu"
 		menubar.add(Edytuj_JMenu);//dodaje do "JMenuBar" obiekt "Edytuj_JMenu"
 		JMenuItem_Edytuj();
 		
 		
-		Obliczenia_JMenu = Tworzenie_JMenu("Obliczenia", 79);//wywo³uje metode która uwtorzy obiekt JMenu pod nazw¹ "Edytuj" ze skrótem klawiszowym ca³oœæ zapisuje w obiekcie "Edytuj_JMenu"
+		Obliczenia_JMenu = Tworzenie_JMenu("Obliczenia", 79);//wywo³uje metode która uwtorzy obiekt JMenu pod nazw± "Edytuj" ze skrótem klawiszowym ca³o¶æ zapisuje w obiekcie "Edytuj_JMenu"
 		menubar.add(Obliczenia_JMenu);//dodaje do "JMenuBar" obiekt "Edytuj_JMenu"
 		JMenuItem_Obliczenia();
 		
@@ -680,10 +681,10 @@ public class GUI extends JFrame
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(10, 10, 150, 300);
-	//	String Opcje[] = {"Suma", Œrednia", "Min", "Max"};
+	//	String Opcje[] = {"Suma", ¦rednia", "Min", "Max"};
 		List<String> dane_do_listyy = new ArrayList<String>();
 		dane_do_listyy.add("Suma");
-		dane_do_listyy.add("Œrednia");
+		dane_do_listyy.add("¦rednia");
 		dane_do_listyy.add("Min");
 		dane_do_listyy.add("Max");
 		
@@ -707,15 +708,15 @@ public class GUI extends JFrame
 				}
 				else if(lista.getSelectedIndex() == 1)
 				{
-					text.setText("Œrednia dodaje do siebie 25 elementów i dzieli przez iloœæ liczb");
+					text.setText("¦rednia dodaje do siebie 25 elementów i dzieli przez ilo¶æ liczb");
 				}
 				else if(lista.getSelectedIndex() == 2)
 				{
-					text.setText("Min przeszukuje zbiór w celu znalezienai najmniejszej wartoœci");
+					text.setText("Min przeszukuje zbiór w celu znalezienai najmniejszej warto¶ci");
 				}
 				else if(lista.getSelectedIndex() == 3)
 				{
-					text.setText("Max przeszukuje zbiór w celu znalezienai najwiêkszej wartoœci");
+					text.setText("Max przeszukuje zbiór w celu znalezienai najwiêkszej warto¶ci");
 				}
 				
 			}
@@ -729,7 +730,7 @@ public class GUI extends JFrame
 		
 		
 		
-		GUI_ikonki_toolbar();//metoda tworz¹ca ikonki w toolbarze
+		GUI_ikonki_toolbar();//metoda tworz±ca ikonki w toolbarze
 		
 		contenerPanel.add(Ikonki_Menu,BorderLayout.NORTH);
 		
@@ -766,7 +767,7 @@ public class GUI extends JFrame
 			@Override
 			public void stateChanged(ChangeEvent arg0) 
 			{
-				//aby u¿ytkownik nie móg³½ wpisaæ wartoœci do wiersza 0 i mniejszej
+				//aby u¿ytkownik nie móg³½ wpisaæ warto¶ci do wiersza 0 i mniejszej
 				int liczba = Integer.parseInt(nr_wiersza_sp.getValue().toString());
 				if(liczba <= 0)
 				{
@@ -794,7 +795,7 @@ public class GUI extends JFrame
 			@Override
 			public void stateChanged(ChangeEvent arg0) 
 			{
-				//aby u¿ytkownik nie móg³ wpisaæ wartoœci do kolumny 0 i mniejszej
+				//aby u¿ytkownik nie móg³ wpisaæ warto¶ci do kolumny 0 i mniejszej
 				int liczba = Integer.parseInt(nr_kolumny_sp.getValue().toString());
 				if(liczba <= 0)
 				{
@@ -816,7 +817,7 @@ public class GUI extends JFrame
 		tabelka.setBorder(BorderFactory.createLineBorder(Color.gray));
 		//srodkowy_layout.add(tabelka);	xqw
 		
-		//btn dodaj z ikonk¹
+		//btn dodaj z ikonk±
 		//JButton dodaj_btn = new JButton();
 		dodaj_btn = new JButton();
 		dodaj_btn.setText("Dodaj");
@@ -828,7 +829,7 @@ public class GUI extends JFrame
 		
 		
 		
-		//btn wyzeruj z ikonk¹
+		//btn wyzeruj z ikonk±
 		wyzeruj_btn = new JButton();
 		wyzeruj_btn.setText("Wyzeruj");
 		Icon wyzeruj = new ImageIcon("ikonka5.jpg");
@@ -839,7 +840,7 @@ public class GUI extends JFrame
 		
 		
 		
-		//btn wype³nij z ikonk¹
+		//btn wype³nij z ikonk±
 		wypelnij_btn = new JButton();
 		wypelnij_btn.setText("Wype³nij");
 		Icon wypelnij = new ImageIcon("ikonka6.jpg");
@@ -847,7 +848,7 @@ public class GUI extends JFrame
 		wypelnij_btn.setBounds(500, 120, 105, 25);
 		//srodkowy_layout.add(wypelnij_btn);	xqw
 		
-		//btn zapisz z ikonk¹
+		//btn zapisz z ikonk±
 		zapisz_btn = new JButton();
 		zapisz_btn.setText("Zapisz");
 		Icon zapisz = new ImageIcon("ikonka1.jpg");
@@ -864,16 +865,16 @@ public class GUI extends JFrame
 		JScrollPane opcja_scrlp = new JScrollPane();
 		/*String[] nazwy = {"Wybierz opcjê",
 				"Suma elementów",
-				"Œrednia elementów",
-				"Wartoœæ max",
-				"Wartoœæ min"};*/
+				"¦rednia elementów",
+				"Warto¶æ max",
+				"Warto¶æ min"};*/
 		
 		List<String> dane_do_listy = new ArrayList<String>();
 		dane_do_listy.add("Wybierz opcjê");
 		dane_do_listy.add("Suma elementów");
-		dane_do_listy.add("Œrednia elementów");
-		dane_do_listy.add("Wartoœæ max");
-		dane_do_listy.add("Wartoœæ min");
+		dane_do_listy.add("¦rednia elementów");
+		dane_do_listy.add("Warto¶æ max");
+		dane_do_listy.add("Warto¶æ min");
 		
 		lista_M listm = new lista_M(dane_do_listy);
 		opcje_list = new JList(listm);
@@ -943,7 +944,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca dolny panel aplikacji.
+	 * Metoda tworz±ca dolny panel aplikacji.
 	 */
 	private void info_panel()//zrobione
 	{
@@ -975,7 +976,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz¹ca toolbar 
+	 * Metoda tworz±ca toolbar 
 	 */
 	private void GUI_ikonki_toolbar()//zrobione
 	{
@@ -1163,7 +1164,7 @@ public class GUI extends JFrame
 		
 	
 	/**
-	 * Metoda odpowiedzalna za wyœwietlanie informacji o autorze 
+	 * Metoda odpowiedzalna za wy¶wietlanie informacji o autorze 
 	 */
 	private void O_Autorze()//zrobione
 	{
@@ -1194,8 +1195,8 @@ public class GUI extends JFrame
 	
 
 	/**
-	 * Metoda odpowiedzalna za obliczenie sumy elementów znajduj¹cych sie w tabeli
-	 * @param tabelka obiekt typu JTable okreœla z jakiej tabeli bêd¹ liczone sumy elementów
+	 * Metoda odpowiedzalna za obliczenie sumy elementów znajduj±cych sie w tabeli
+	 * @param tabelka obiekt typu JTable okre¶la z jakiej tabeli bêd± liczone sumy elementów
 	 * @return zwraca wynik sumy elementów jako typ int
 	 */
 	private int suma_elementoww(JTable tabelka)//zrobione
@@ -1225,8 +1226,8 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpowiedzalna za wyœwietlenie rezultatu sumy elementów w obiekcie typu JTextArea
-	 * @param tabelka obiekt typu JTable okreœla z jakiej tabeli bêd¹ liczone sumy elementów
+	 * Metoda odpowiedzalna za wy¶wietlenie rezultatu sumy elementów w obiekcie typu JTextArea
+	 * @param tabelka obiekt typu JTable okre¶la z jakiej tabeli bêd± liczone sumy elementów
 	 */
 	private void suma_elementow(JTable tabelka)//zrobione
 	{
@@ -1235,9 +1236,9 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpowiedzalna za obliczenie œredniej elementów znajduj¹cych siê w tabeli
-	 * @param tabelka obiekt typu JTable okreœla z jakiej tabeli bêdzie liczona œrednia
-	 * @param uzyskany_rezultat_ta typu JTextArea okreœla gdzie zostanie wyœwietlony wynik
+	 * Metoda odpowiedzalna za obliczenie ¶redniej elementów znajduj±cych siê w tabeli
+	 * @param tabelka obiekt typu JTable okre¶la z jakiej tabeli bêdzie liczona ¶rednia
+	 * @param uzyskany_rezultat_ta typu JTextArea okre¶la gdzie zostanie wy¶wietlony wynik
 	 */
 	private void srednia_elementow(JTable tabelka, JTextArea uzyskany_rezultat_ta)//zrobione
 	{
@@ -1247,9 +1248,9 @@ public class GUI extends JFrame
 		try
 		{
 			wynik = suma_elementoww(tabelka);
-			ilosc_elementow = (tabelka.getRowCount()-1) * tabelka.getColumnCount();//bo jeden rz¹d jest na nazwe kolumny 1,2,3...
+			ilosc_elementow = (tabelka.getRowCount()-1) * tabelka.getColumnCount();//bo jeden rz±d jest na nazwe kolumny 1,2,3...
 			wynik_double = wynik/ilosc_elementow;
-			uzyskany_rezultat_ta.append("Œrednia elementów wynosi: "+wynik_double+"\n");
+			uzyskany_rezultat_ta.append("¦rednia elementów wynosi: "+wynik_double+"\n");
 		}
 		catch(Exception ex)
 		{
@@ -1262,9 +1263,9 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpowiedzalna za obliczenie minimalnego elementu znajduj¹cego siê w tabeli
-	 * @param tabelka obiekt typu JTable okreœla z jakiej tabeli bêdzie szukaæ minimum
-	 * @param uzyskany_rezultat_ta typu JTextArea okreœla gdzie zostanie wyœwietlony wynik
+	 * Metoda odpowiedzalna za obliczenie minimalnego elementu znajduj±cego siê w tabeli
+	 * @param tabelka obiekt typu JTable okre¶la z jakiej tabeli bêdzie szukaæ minimum
+	 * @param uzyskany_rezultat_ta typu JTextArea okre¶la gdzie zostanie wy¶wietlony wynik
 	 */
 	private void minimum(JTable tabelka, JTextArea uzyskany_rezultat_ta)//zrobione
 	{
@@ -1285,7 +1286,7 @@ public class GUI extends JFrame
 					}
 				}
 			}
-			uzyskany_rezultat_ta.append("Wartoœæ min wynosi: "+najmniejsza_wartosc+"\n");
+			uzyskany_rezultat_ta.append("Warto¶æ min wynosi: "+najmniejsza_wartosc+"\n");
 		}
 		catch(Exception ex)
 		{
@@ -1299,9 +1300,9 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpowiedzalna za obliczenie maksymalnego elementu znajduj¹cego siê w tabeli
-	 * @param tabelka obiekt typu JTable okreœla z jakiej tabeli bêdzie szukaæ maksimum
-	 * @param uzyskany_rezultat_ta typu JTextArea okreœla gdzie zostanie wyœwietlony wynik
+	 * Metoda odpowiedzalna za obliczenie maksymalnego elementu znajduj±cego siê w tabeli
+	 * @param tabelka obiekt typu JTable okre¶la z jakiej tabeli bêdzie szukaæ maksimum
+	 * @param uzyskany_rezultat_ta typu JTextArea okre¶la gdzie zostanie wy¶wietlony wynik
 	 */
 	private void maksimum(JTable tabelka, JTextArea uzyskany_rezultat_ta)//zrobione
 	{
@@ -1323,7 +1324,7 @@ public class GUI extends JFrame
 					}
 				}
 			}
-			uzyskany_rezultat_ta.append("Wartoœæ max wynosi: "+najwieksza_wartosc+"\n");
+			uzyskany_rezultat_ta.append("Warto¶æ max wynosi: "+najwieksza_wartosc+"\n");
 		}
 		catch(Exception ex)
 		{
@@ -1337,8 +1338,8 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odppwiedzalna za wprowadzenie liczby do tabeli
-	 * @param nr_kolumny_sp obiekt typu JSpinner okreœla do jakiej kolumny bêdzie dodana liczba
-	 * @param nr_wiersza_sp obiekt typu JSpinner okreœla do jakiego wierszu bêdzie dodana liczba
+	 * @param nr_kolumny_sp obiekt typu JSpinner okre¶la do jakiej kolumny bêdzie dodana liczba
+	 * @param nr_wiersza_sp obiekt typu JSpinner okre¶la do jakiego wierszu bêdzie dodana liczba
 	 */
 	private void dodaj(JSpinner nr_kolumny_sp, JSpinner nr_wiersza_sp, JTextField wprowadz_liczbe)//zrobione
 	{
@@ -1374,7 +1375,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpwiedzalna wyzerowanie ca³ej tabeli
-	 * @param tabelka obiekt typu JTable okreœla która tabela bêdzie wyzerowana
+	 * @param tabelka obiekt typu JTable okre¶la która tabela bêdzie wyzerowana
 	 */
 	private void wyzeruj(JTable tabelka)//zrobione
 	{
@@ -1412,7 +1413,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Metoda odpwiedzalna za dodanie s³uchacza do przycisku "zapisz_btn"
-	 * odpowiedzalnego za zapisanie wartoœci tabeli do pliku typu .txt
+	 * odpowiedzalnego za zapisanie warto¶ci tabeli do pliku typu .txt
 	 * @param arg0 argument typu ActionListener
 	 */
 	public void zapis_do_tabeli_jbn(ActionListener arg0)
@@ -1422,9 +1423,9 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpwiedzalna wype³nienie ca³ej tabeli podan¹ liczb¹
-	 * @param tabelka obiekt typu JTable okreœla do której tabeli ma zapisaæ liczby
-	 * @param wprowadz_liczbe obiekt typu JTextField okreœla jaka liczba zostanie wprowadzona
+	 * Metoda odpwiedzalna wype³nienie ca³ej tabeli podan± liczb±
+	 * @param tabelka obiekt typu JTable okre¶la do której tabeli ma zapisaæ liczby
+	 * @param wprowadz_liczbe obiekt typu JTextField okre¶la jaka liczba zostanie wprowadzona
 	 */
 	private void wypelnij(JTable tabelka, JTextField wprowadz_liczbe)//zrobione
 	{
@@ -1453,7 +1454,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpowiedzalna za wczytanie z pliku typu .txt wartoœci do tabeli
+	 * Metoda odpowiedzalna za wczytanie z pliku typu .txt warto¶ci do tabeli
 	 */
 	private void odczyt_pliku()//zrobione
 	{
@@ -1492,7 +1493,7 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda odpwiedzalna za zapisanie wartoœci tabeli do pliku typu .txt
+	 * Metoda odpwiedzalna za zapisanie warto¶ci tabeli do pliku typu .txt
 	 */
 	private void zapis_pliku()//zrobione
 	{
@@ -1528,7 +1529,7 @@ public class GUI extends JFrame
 				}
 	            out.close();
 
-	            JOptionPane.showMessageDialog(this, "Dane zosta³y zapisane do pliku pod nazw¹ "+sciezka_pliku, "Zapisz", JOptionPane.INFORMATION_MESSAGE);
+	            JOptionPane.showMessageDialog(this, "Dane zosta³y zapisane do pliku pod nazw± "+sciezka_pliku, "Zapisz", JOptionPane.INFORMATION_MESSAGE);
 			}
 			catch(Exception ex)
 			{
@@ -1542,7 +1543,7 @@ public class GUI extends JFrame
 	
 	/**
 	 * Konstruktor odpowiedzalny za utworzenie obiektu typu JFrame oraz 
-	 * wywo³anie funkcji "utworz()" tworz¹cej GUI(Graficzny Interfejs U¿ytkownika)
+	 * wywo³anie funkcji "utworz()" tworz±cej GUI(Graficzny Interfejs U¿ytkownika)
 	 * 
 	 */
 	public GUI(final tabelka_M m)//konstruktor
@@ -1562,13 +1563,13 @@ public class GUI extends JFrame
 		logger.addAppender(consLogs);
 		//Ustawienie poziomu komunikatu do informacji
 		logger.setLevel(Level.INFO);
-		//Informacja jaka ma siê wyœwietliæ
+		//Informacja jaka ma siê wy¶wietliæ
 		logger.info("Start");
 		
 		this.setSize(770,500);//ustawienie rozmiaru frame
 		this.setLocation(500, 200);//ustawienie lokalizacji okienka frame
 		this.setTitle("Projekt cw1");//ustawienie tytu³u okienka frame	
-		this.setResizable(true);//ustawienie niezmienialnoœci okienka frame
+		this.setResizable(true);//ustawienie niezmienialno¶ci okienka frame
 		contenerPanel = (JPanel)this.getContentPane();
 		BorderLayout BL = new BorderLayout();
 		//BL.setHgap(20);
@@ -1618,7 +1619,7 @@ public class GUI extends JFrame
 			}
 		});
 		
-		//Próba utworzenia GUI, je¿eli siê uda to utworzy je¿eli nie to wyœwietli w konsoli komunikat
+		//Próba utworzenia GUI, je¿eli siê uda to utworzy je¿eli nie to wy¶wietli w konsoli komunikat
 		try 
 		{	
 	        javax.swing.SwingUtilities.invokeAndWait(new Runnable() {
