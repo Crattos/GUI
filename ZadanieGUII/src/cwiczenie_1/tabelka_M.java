@@ -22,7 +22,7 @@ public class tabelka_M extends AbstractTableModel
 							{0,0,0,0,0}
 							};
 	/**
-	 * Konstruktor domyœlny
+	 * Konstruktor domy¶lny
 	 */
 	public tabelka_M()//konstruktor
 	{
@@ -34,7 +34,7 @@ public class tabelka_M extends AbstractTableModel
 	 * Metoda odpowiedzalna za zwrócenie elementu z obiektu rows dwuelementowego
 	 * @param r typu int jest odpowiedzalny za wyznaczenie wiersza
 	 * @param c typu int jest odpowiedzalny za wyznaczenie kolumny
-	 * @return zwraca wartoœæ obiektu rows jako typ Object
+	 * @return zwraca warto¶æ obiektu rows jako typ Object
 	 */
 	public Object getValueAt(int r, int c)
 	{
@@ -44,8 +44,8 @@ public class tabelka_M extends AbstractTableModel
 	
 	
 	/**
-	 * Metoda odpowiedzalna za zwrócenie iloœci kolumn w tabeli
-	 * @return zwraca wartoœæ typu int
+	 * Metoda odpowiedzalna za zwrócenie ilo¶ci kolumn w tabeli
+	 * @return zwraca warto¶æ typu int
 	 */
 	public int getColumnCount()
 	{
@@ -54,8 +54,8 @@ public class tabelka_M extends AbstractTableModel
 	
 	
 	/**
-	 * Metoda odpowiedzalna za zwrócenie iloœci wierszy w tabeli
-	 * @return zwraca wartoœæ typu int
+	 * Metoda odpowiedzalna za zwrócenie ilo¶ci wierszy w tabeli
+	 * @return zwraca warto¶æ typu int
 	 */
 	public int getRowCount()
 	{
@@ -66,7 +66,7 @@ public class tabelka_M extends AbstractTableModel
 	/**
 	 * Metoda odpowiedzalna za zwrócenie nazwy kolumny
 	 * @param c typu int jest odpowiedzalny za wyznaczenie numeru kolumny
-	 * @return zwraca wartoœæ typu String
+	 * @return zwraca warto¶æ typu String
 	 */
 	public String getColumnName(int c)
 	{
@@ -88,10 +88,10 @@ public class tabelka_M extends AbstractTableModel
 	
 	
 	/**
-	 * Metoda odpowiedzalna za zwrócenie wartoœci czy podany element jest edytowalny
+	 * Metoda odpowiedzalna za zwrócenie warto¶ci czy podany element jest edytowalny
 	 * @param r typu int oznacza numer wiersza
 	 * @param c typu int oznacza numer kolumny
-	 * @return zwraca wartoœæ typu boolean
+	 * @return zwraca warto¶æ typu boolean
 	 */
 	public boolean isCellEditable(int r, int c)
 	{

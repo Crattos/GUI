@@ -113,6 +113,7 @@ public class GUI extends JFrame
 	JButton wyzeruj_btn;
 	JButton wypelnij_btn;
 	JButton zapisz_btn;
+	JButton wykres;
 	
 	JList opcje_list;
 	JList lista;
@@ -561,6 +562,8 @@ public class GUI extends JFrame
 		JTipOfTheDay porady = new JTipOfTheDay(spis_porad);
 		//potem pozostaje nam pokazanie tego obiektu
 		porady.showDialog(this);
+		
+		
 	}
 	
 	
@@ -721,7 +724,7 @@ public class GUI extends JFrame
 		});
 		aaa.add(scrollPane_1);
 		
-		porady_dnia();
+//		porady_dnia();
 
 		
 		Ikonki_Menu = new JToolBar("Pasek narzêdziowy");
@@ -835,7 +838,7 @@ public class GUI extends JFrame
 		wyzeruj_btn.setBounds(500, 90, 105, 25);
 		//srodkowy_layout.add(wyzeruj_btn);	xqw
 		
-		
+	
 		
 		
 		//btn wype³nij z ikonk±
@@ -853,6 +856,12 @@ public class GUI extends JFrame
 		zapisz_btn.setIcon(zapisz);//ikonka 
 		zapisz_btn.setBounds(500, 150, 105, 25);
 		//srodkowy_layout.add(zapisz_btn);	xqw
+		
+//////////////////////////////////////////////
+		wykres = new JButton();
+		wykres.setText("Wykres");
+		wykres.setIcon(wyzeruj);//ikonka 
+		wykres.setBounds(500, 180, 105, 25);
 		
 		//lbl oblicz
 		JLabel obliczenia_lbl = new JLabel();
@@ -920,6 +929,7 @@ public class GUI extends JFrame
 		widok_tabeli.add(wyzeruj_btn);
 		widok_tabeli.add(wypelnij_btn);
 		widok_tabeli.add(zapisz_btn);
+		widok_tabeli.add(wykres);
 		widok_tabeli.add(obliczenia_lbl);
 		widok_tabeli.add(opcja_scrlp);
 		widok_tabeli.add(wprowadz_liczbe);	
@@ -937,6 +947,8 @@ public class GUI extends JFrame
 		srodkowy_layout.add(widok_kalendarza);
 		
 		contenerPanel.add(srodkowy_layout, BorderLayout.CENTER);
+		
+		
 		
 	}
 	
@@ -1140,6 +1152,8 @@ public class GUI extends JFrame
 				
 			}
 		});
+		
+		
 		
 		Ikonki_Menu.add(Box.createHorizontalStrut(5));//odstêp
 		Ikonki_Menu.add(okienko1);//dodanie przycisku
@@ -1397,6 +1411,11 @@ public class GUI extends JFrame
 		wyzeruj_btn.addActionListener(arg0);
 	}
 	
+///////////////////////////////////////////////////////////////	
+	public void pokaz_wykres_jbn(ActionListener arg0)//zrobione
+	{
+		wykres.addActionListener(arg0);
+	}
 	
 	/**
 	 * Metoda odpwiedzalna za dodanie s³uchacza do przycisku "wypelnij_btn"
@@ -1406,6 +1425,7 @@ public class GUI extends JFrame
 	public void wypelnij_do_tabeli_jbn(ActionListener arg0)//zrobione
 	{
 		wypelnij_btn.addActionListener(arg0);
+		
 	}
 	
 	
@@ -1626,6 +1646,7 @@ public class GUI extends JFrame
 	            	
 	            	
 	            	utworz(m);
+	            	porady_dnia();
 	            }
 	        });	
 		}
@@ -1636,6 +1657,7 @@ public class GUI extends JFrame
 			System.out.println("ERROR - Blad podczas tworzenia GUI aplikacji");
 		}
 		
+
 	}
 
 	

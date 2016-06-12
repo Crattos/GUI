@@ -33,6 +33,16 @@ public class tabelka_C
 		this.VIEW = VIEW;
 		this.MODEL = MODEL;
 		
+		this.VIEW.pokaz_wykres_jbn(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Chart();
+				
+			}
+		});
+		
 		this.VIEW.dodaj_do_tabeli_jbn(new ActionListener() 
 		{
 			
@@ -144,11 +154,11 @@ public class tabelka_C
 						}
 			            out.close();
 
-			            JOptionPane.showMessageDialog(VIEW, "Dane zosta³y zapisane do pliku pod nazw¹½ "+sciezka_pliku, "Zapisz", JOptionPane.INFORMATION_MESSAGE);
+			            JOptionPane.showMessageDialog(VIEW, "Dane zosta³y zapisane do pliku pod nazw±½ "+sciezka_pliku, "Zapisz", JOptionPane.INFORMATION_MESSAGE);
 					}
 					catch(Exception ex)
 					{
-						logger.error("B³¹d podczas zapisu wartoœci tabeli do pliku typu .txt");
+						logger.error("B³±d podczas zapisu warto¶ci tabeli do pliku typu .txt");
 						//MojLoger.writeLog("ERROR", "Bï¿½ï¿½d podczas zapisu wartoï¿½ci tabeli do pliku typu .txt");
 						JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
 					}
