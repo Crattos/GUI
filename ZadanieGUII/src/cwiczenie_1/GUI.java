@@ -785,7 +785,6 @@ public class GUI extends JFrame{
 		//srodkowy_layout.add(tabelka);	xqw
 		
 		//btn dodaj z ikonk±
-		//JButton dodaj_btn = new JButton();
 		dodaj_btn = new JButton();
 		dodaj_btn.setFont(new Font("Arial", Font.BOLD, 10));
 		dodaj_btn.setText("Dodaj");
@@ -849,6 +848,7 @@ public class GUI extends JFrame{
 		obliczenia_lbl.setBounds(10, 180, 100, 20);
 		//srodkowy_layout.add(obliczenia_lbl);	xqw
 		
+		//Tworzy obiekt JSCrollPane, do wy¶wietlenia wyników
 		JScrollPane opcja_scrlp = new JScrollPane();
 		String[] nazwy = {"Wybierz opcjê",
 				"Suma elementów",
@@ -856,7 +856,7 @@ public class GUI extends JFrame{
 				"Warto¶æ max",
 				"Warto¶æ min"};
 		
-
+		//Tworzy obiekt typu Combo, aby zastosowaæ model MVC w JComboBox
 		Combo combo = new Combo();
 		opcjeList = new JComboBox(nazwy);
 		opcjeList.addActionListener(combo);

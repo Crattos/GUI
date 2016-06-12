@@ -13,8 +13,7 @@ import javax.swing.AbstractListModel;
 * -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
 */
 
-public class lista_M extends AbstractListModel
-{
+public class lista_M extends AbstractListModel{
 	List<String> abcd = new ArrayList<String>();
 	
 	

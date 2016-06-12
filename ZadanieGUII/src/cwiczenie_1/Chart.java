@@ -12,14 +12,31 @@ import org.jfree.chart.labels.StandardPieSectionLabelGenerator;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
 
+
+/** 
+* Klasa Chart odpowiedzialana jest, za stworzenie i wy¶wietlenia wykresu ko³owego
+* @author Patryk Miler	 	
+* @version 1.0	16/05/2016
+* -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
+*/
+
 public class Chart {
+	
+	/**
+	 * Konstruktor domy¶lny
+	 */
 	
 	public Chart(){
 		
 	}
 	
+	/**
+	 * Konstruktor z parametrem
+	 * @param tabelka pobiera zawarto¶æ tabelki z klasy GUI 
+	 */
+	
 	public Chart(JTable tabelka){
-		// create a dataset...
+		// Pobiera dane z tabeli
 		DefaultPieDataset data = new DefaultPieDataset();
 		int wartosc;
 		
@@ -35,7 +52,7 @@ public class Chart {
 				}
 			}
 
-				// create a chart...
+				// Tworzy wykres
 				JFreeChart chart = ChartFactory.createPieChart(
 										"Wykres ko³owy",
 										data,
@@ -43,7 +60,8 @@ public class Chart {
 										true, // tooltips?
 										false // URLs?
 									);
-				// create and display a frame...
+				// Tworzy i wy¶wielta ramkê
+				//Tworzy nowy obiekt
 				
 				PieSectionLabelGenerator gen = new StandardPieSectionLabelGenerator( "{0}- {2}", new DecimalFormat("0.0"), new DecimalFormat("0.0%"));
 				PiePlot plot = (PiePlot) chart.getPlot();
