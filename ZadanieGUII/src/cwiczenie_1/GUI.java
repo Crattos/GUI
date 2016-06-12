@@ -862,6 +862,14 @@ public class GUI extends JFrame
 		wykres.setText("Wykres");
 		wykres.setIcon(wyzeruj);//ikonka 
 		wykres.setBounds(500, 180, 105, 25);
+		wykres.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Chart(tabelka);
+			}
+		});
 		
 		//lbl oblicz
 		JLabel obliczenia_lbl = new JLabel();
@@ -1243,7 +1251,7 @@ public class GUI extends JFrame
 	 */
 	private void suma_elementow(JTable tabelka)//zrobione
 	{
-		uzyskany_rezultat_ta.append("Suma elementï¿½w wynosi: "+suma_elementoww( tabelka)+"\n");
+		uzyskany_rezultat_ta.append("Suma elementów wynosi: "+suma_elementoww( tabelka)+"\n");
 	}
 	
 	
@@ -1412,10 +1420,10 @@ public class GUI extends JFrame
 	}
 	
 ///////////////////////////////////////////////////////////////	
-	public void pokaz_wykres_jbn(ActionListener arg0)//zrobione
-	{
-		wykres.addActionListener(arg0);
-	}
+//	public void pokaz_wykres_jbn(ActionListener arg0)//zrobione
+//	{
+//		wykres.addActionListener(arg0);
+//	}
 	
 	/**
 	 * Metoda odpwiedzalna za dodanie s³uchacza do przycisku "wypelnij_btn"

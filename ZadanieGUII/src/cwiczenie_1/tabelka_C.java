@@ -33,15 +33,15 @@ public class tabelka_C
 		this.VIEW = VIEW;
 		this.MODEL = MODEL;
 		
-		this.VIEW.pokaz_wykres_jbn(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				new Chart();
-				
-			}
-		});
+//		this.VIEW.pokaz_wykres_jbn(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				// TODO Auto-generated method stub
+//				new Chart();
+//				
+//			}
+//		});
 		
 		this.VIEW.dodaj_do_tabeli_jbn(new ActionListener() 
 		{
