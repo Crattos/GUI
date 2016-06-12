@@ -70,7 +70,7 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 
 //Testowanie GITa
 //Dodatkowy kod
-//Jeszcze jedenœæ¶
+//Jeszcze jedenæ¶
 //no zobaczymy
 //No i jest master
 
