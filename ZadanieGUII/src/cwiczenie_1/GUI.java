@@ -72,6 +72,7 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 //Dodatkowy kod
 //Jeszcze jeden
 //no zobaczymy
+//No i jest master
 
 /** 
 * Klasa GUI definiujaca centralny i dolny panel 
