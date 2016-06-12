@@ -3,6 +3,7 @@ package cwiczenie_1;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -23,7 +24,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -39,6 +39,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -63,7 +64,7 @@ import org.freixas.jcalendar.DateEvent;
 import org.freixas.jcalendar.DateListener;
 import org.freixas.jcalendar.JCalendarCombo;
 
-import com.l2fprod.common.swing.JButtonBar;
+import com.l2fprod.common.swing.JOutlookBar;
 import com.l2fprod.common.swing.JTipOfTheDay;
 import com.l2fprod.common.swing.tips.DefaultTip;
 import com.l2fprod.common.swing.tips.DefaultTipModel;
@@ -82,8 +83,7 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 */
 
 
-public class GUI extends JFrame
-{
+public class GUI extends JFrame{
 	
 	JPanel contenerPanel;
 	JMenuBar menubar;
@@ -103,8 +103,8 @@ public class GUI extends JFrame
 	JTable tabelka;
 	JDialog O_Autorze;
 	JTextArea uzyskany_rezultat_ta;
-	JSpinner nr_wiersza_sp;
-	JSpinner nr_kolumny_sp;
+	JSlider nr_wiersza_sp;
+	JSlider nr_kolumny_sp;
 	JTextField wprowadz_liczbe;
 	JDialog Pomoc;
 	
@@ -118,6 +118,8 @@ public class GUI extends JFrame
 	JList opcje_list;
 	JList lista;
 	
+	JComboBox opcjeList;
+	
 	
 	JPanel widok_tabeli;
 	JPanel widok_kalendarza;
@@ -125,6 +127,7 @@ public class GUI extends JFrame
 	JCalendarCombo kalendarz;
 	JButton oblicz_btn;
 	lista_M list_m ;
+	JSlider nr_wiersza;
 	
 	
 	Logger logger = Logger.getLogger(GUI.class.getName());
@@ -462,16 +465,16 @@ public class GUI extends JFrame
 	
 	
 	/**
-	 * Metoda tworz±ca obiekt typu JButtonBar i JToggleButton. 
-	 * @return zwraca obiekt typu JButtonBar
+	 * Metoda tworz±ca obiekt typu JOutlookBar. 
+	 * @return zwraca obiekt typu JOutlookBar
 	 */
-	private JButtonBar panel_nawigacyjny_jbb()
+	private JOutlookBar panel_nawigacyjny_jbb()
 	{
-		JButtonBar btnBar = new JButtonBar();
-		ButtonGroup btnGroup = new ButtonGroup();
-		JToggleButton kaneldarz_btn = new JToggleButton("Kaneldarz",new ImageIcon("kalendarz.png"));
+		JOutlookBar btnBar = new JOutlookBar();
+		//ButtonGroup btnGroup = new ButtonGroup();
+		JToggleButton kaneldarz_btn = new JToggleButton(new ImageIcon("kalendarz.png"));
 		//ikonki kalendarz: https://www.iconfinder.com/icons/173169/calendar_icon#size=64
-		JToggleButton tabela_btn = new JToggleButton("Tabela",new ImageIcon("tabelka.png"));
+		JToggleButton tabela_btn = new JToggleButton(new ImageIcon("tabelka.png"));
 		// ikonki tabela: https://www.iconfinder.com/icons/8898/document_excel_spreadsheet_table_icon#size=64
 
 		tabela_btn.addActionListener(new ActionListener()
@@ -493,16 +496,11 @@ public class GUI extends JFrame
 
 			}
 		});
-		
+		//Nadanie granic okienka, dodanie karty do OutlookBar
 		btnBar.setBounds(13, 10, 100, 210);
-		btnBar.setOrientation(JButtonBar.VERTICAL);
 		
-
-		btnBar.add(tabela_btn);
-		btnGroup.add(tabela_btn);
-
-		btnBar.add(kaneldarz_btn);
-		btnGroup.add(kaneldarz_btn);
+		btnBar.addTab("Tabela", tabela_btn);
+		btnBar.addTab("Kalendarz", kaneldarz_btn);
 		
 		btnBar.setVisible(true);
 		return btnBar;
@@ -588,32 +586,27 @@ public class GUI extends JFrame
 					
 					int wybor;
 
-						wybor = opcje_list.getSelectedIndex();
+						wybor = opcjeList.getSelectedIndex();
 						
 						switch (wybor) 
 						{		                
 			            case 1: 
 			            	suma_elementow(tabelka);
-			            	//uzyskany_rezultat_ta.append("Suma elementów wynosi: "+suma_elementow(tabelka)+"\n");
 			                break;
 			                     
 			            case 2:
 			            	srednia_elementow(tabelka,uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("¦rednia elementów wynosi: "+srednia_elementow(tabelka)+"\n");
 			                break;
 			                
 			            case 3:
 			            	maksimum(tabelka, uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("Najwiêksza warto¶æ wynosi: "++"\n");
 			                break;
 			                
 			            case 4:
 			            	minimum(tabelka, uzyskany_rezultat_ta);
-			            	//uzyskany_rezultat_ta.append("Najmniejsza warto¶æ wynosi: "+minimum(tabelka)+"\n");
 			                break;
 			                     
 			            default: 
-			            //	JOptionPane.showMessageDialog(this, "Nie ma takiej opcji", "Ups", JOptionPane.INFORMATION_MESSAGE);
 			                break;
 						}
 					
@@ -691,7 +684,7 @@ public class GUI extends JFrame
 		
 		list_m = new lista_M(dane_do_listyy);
 		lista = new JList(list_m);
-		//lista.setSelectedIndex(0);
+		lista.setSelectedIndex(0);
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane_1.setViewportView(lista);
 		
@@ -722,9 +715,9 @@ public class GUI extends JFrame
 				
 			}
 		});
-		aaa.add(scrollPane_1);
+	aaa.add(scrollPane_1);
 		
-//		porady_dnia();
+
 
 		
 		Ikonki_Menu = new JToolBar("Pasek narzêdziowy");
@@ -756,59 +749,32 @@ public class GUI extends JFrame
 		//srodkowy_layout.add(wprowadz_liczbe);		xqw
 		
 		JLabel nr_wiersza_lbl = new JLabel();
-		nr_wiersza_lbl.setText("Numer wiersza");
-		nr_wiersza_lbl.setBounds(240, 20, 90, 20);
+		nr_wiersza_lbl.setText("Wiersz");
+		nr_wiersza_lbl.setBounds(241, 5, 90, 20);
 		//srodkowy_layout.add(nr_wiersza_lbl);	xqw
 		
-		nr_wiersza_sp = new JSpinner();
-		nr_wiersza_sp.setValue(1);
-		nr_wiersza_sp.setBounds(330, 20, 70, 20);
-		nr_wiersza_sp.addChangeListener(new ChangeListener() 
-		{
-			@Override
-			public void stateChanged(ChangeEvent arg0) 
-			{
-				//aby u¿ytkownik nie móg³½ wpisaæ warto¶ci do wiersza 0 i mniejszej
-				int liczba = Integer.parseInt(nr_wiersza_sp.getValue().toString());
-				if(liczba <= 0)
-				{
-					nr_wiersza_sp.setValue(1);
-				}
-				else if(liczba >5)
-				{
-					nr_wiersza_sp.setValue(5);
-				}
-				
-			}
-		});
+		//nr_wiersza = new JSlider(JSlider.HORIZONTAL,1,5);
+		
+		nr_wiersza_sp = new JSlider(JSlider.HORIZONTAL,1,5,1);
+		nr_wiersza_sp.setMinorTickSpacing(1);
+		nr_wiersza_sp.setMajorTickSpacing(1);
+		nr_wiersza_sp.setPaintLabels(true);
+
+		//nr_wiersza_sp.setValue(1);
+		nr_wiersza_sp.setBounds(240, 25, 150, 30);
+
 		//srodkowy_layout.add(nr_wiersza_sp);	xqw
 		
 		JLabel nr_kolumny_lbl = new JLabel();
-		nr_kolumny_lbl.setText("Numer kolumny");
-		nr_kolumny_lbl.setBounds(430, 20, 90, 20);
+		nr_kolumny_lbl.setText("Kolumna");
+		nr_kolumny_lbl.setBounds(430, 5, 90, 20);
 		//srodkowy_layout.add(nr_kolumny_lbl);	xqw
 		
-		nr_kolumny_sp = new JSpinner();
-		nr_kolumny_sp.setValue(1);
-		nr_kolumny_sp.setBounds(525, 20, 70, 20);
-		nr_kolumny_sp.addChangeListener(new ChangeListener() 
-		{
-			@Override
-			public void stateChanged(ChangeEvent arg0) 
-			{
-				//aby u¿ytkownik nie móg³ wpisaæ warto¶ci do kolumny 0 i mniejszej
-				int liczba = Integer.parseInt(nr_kolumny_sp.getValue().toString());
-				if(liczba <= 0)
-				{
-					nr_kolumny_sp.setValue(1);
-				}
-				else if(liczba >5)
-				{
-					nr_kolumny_sp.setValue(5);
-				}
-				
-			}
-		});
+		nr_kolumny_sp = new JSlider(JSlider.HORIZONTAL,1,5,1);
+		nr_kolumny_sp.setMinorTickSpacing(1);
+		nr_kolumny_sp.setMajorTickSpacing(1);
+		nr_kolumny_sp.setPaintLabels(true);
+		nr_kolumny_sp.setBounds(430, 25, 150, 30);
 		//srodkowy_layout.add(nr_kolumny_sp);	xqw
 		
 		tabelka = new JTable(m);
@@ -821,6 +787,7 @@ public class GUI extends JFrame
 		//btn dodaj z ikonk±
 		//JButton dodaj_btn = new JButton();
 		dodaj_btn = new JButton();
+		dodaj_btn.setFont(new Font("Arial", Font.BOLD, 10));
 		dodaj_btn.setText("Dodaj");
 		Icon dodaj = new ImageIcon("ikonka4.jpg");
 		dodaj_btn.setIcon(dodaj);//ikonka 
@@ -832,6 +799,7 @@ public class GUI extends JFrame
 		
 		//btn wyzeruj z ikonk±
 		wyzeruj_btn = new JButton();
+		wyzeruj_btn.setFont(new Font("Arial", Font.BOLD, 10));
 		wyzeruj_btn.setText("Wyzeruj");
 		Icon wyzeruj = new ImageIcon("ikonka5.jpg");
 		wyzeruj_btn.setIcon(wyzeruj);//ikonka 
@@ -843,6 +811,7 @@ public class GUI extends JFrame
 		
 		//btn wype³nij z ikonk±
 		wypelnij_btn = new JButton();
+		wypelnij_btn.setFont(new Font("Arial", Font.BOLD, 10));
 		wypelnij_btn.setText("Wype³nij");
 		Icon wypelnij = new ImageIcon("ikonka6.jpg");
 		wypelnij_btn.setIcon(wypelnij);//ikonka 
@@ -851,62 +820,65 @@ public class GUI extends JFrame
 		
 		//btn zapisz z ikonk±
 		zapisz_btn = new JButton();
+		zapisz_btn.setFont(new Font("Arial", Font.BOLD, 10));
 		zapisz_btn.setText("Zapisz");
 		Icon zapisz = new ImageIcon("ikonka1.jpg");
 		zapisz_btn.setIcon(zapisz);//ikonka 
 		zapisz_btn.setBounds(500, 150, 105, 25);
 		//srodkowy_layout.add(zapisz_btn);	xqw
 		
-//////////////////////////////////////////////
+		//Dodanie przycisku z wykresem
 		wykres = new JButton();
+		wykres.setFont(new Font("Arial", Font.BOLD, 10));
 		wykres.setText("Wykres");
 		wykres.setIcon(wyzeruj);//ikonka 
 		wykres.setBounds(500, 180, 105, 25);
 		
+		wykres.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				new Chart(tabelka);
+			}
+		});
+		
 		//lbl oblicz
 		JLabel obliczenia_lbl = new JLabel();
 		obliczenia_lbl.setText("Obliczenia");
-		obliczenia_lbl.setBounds(20, 180, 100, 20);
+		obliczenia_lbl.setBounds(10, 180, 100, 20);
 		//srodkowy_layout.add(obliczenia_lbl);	xqw
 		
 		JScrollPane opcja_scrlp = new JScrollPane();
-		/*String[] nazwy = {"Wybierz opcjê",
+		String[] nazwy = {"Wybierz opcjê",
 				"Suma elementów",
 				"¦rednia elementów",
 				"Warto¶æ max",
-				"Warto¶æ min"};*/
+				"Warto¶æ min"};
 		
-		List<String> dane_do_listy = new ArrayList<String>();
-		dane_do_listy.add("Wybierz opcjê");
-		dane_do_listy.add("Suma elementów");
-		dane_do_listy.add("¦rednia elementów");
-		dane_do_listy.add("Warto¶æ max");
-		dane_do_listy.add("Warto¶æ min");
-		
-		lista_M listm = new lista_M(dane_do_listy);
-		opcje_list = new JList(listm);
-		
-		opcje_list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		opcje_list.setSelectedIndex(0);
-		opcja_scrlp.setViewportView(opcje_list);
-		opcja_scrlp.setBounds(90, 180, 200, 25);
+
+		Combo combo = new Combo();
+		opcjeList = new JComboBox(nazwy);
+		opcjeList.addActionListener(combo);
+
+		opcja_scrlp.setViewportView(opcjeList);
+		opcja_scrlp.setBounds(90, 175, 200, 30);
 		//srodkowy_layout.add(opcja_scrlp);		xqw
 		
 		
 		JScrollPane uzyskany_rezultat_scrlp = new JScrollPane();
-		//final JTextArea uzyskany_rezultat_ta = new JTextArea();
+
 		uzyskany_rezultat_ta = new JTextArea();
 		uzyskany_rezultat_scrlp.setViewportView(uzyskany_rezultat_ta);
-		//uzyskany_rezultat_ta.setBounds(10, 220, 595, 100);
+
 		uzyskany_rezultat_scrlp.setBounds(10, 220, 730, 150);
 		Border lineborder;
 		TitledBorder title;
 		lineborder = BorderFactory.createLineBorder(Color.gray);
 		title = BorderFactory.createTitledBorder(lineborder, "Uzyskany rezultat");
 		title.setTitleJustification(TitledBorder.CENTER);
-		//uzyskany_rezultat_ta.setBorder(title);
+
 		uzyskany_rezultat_scrlp.setBorder(title);
-		//abc.add(uzyskany_rezultat_ta);
 		srodkowy_layout.add(uzyskany_rezultat_scrlp);		
 		
 		
@@ -1243,7 +1215,7 @@ public class GUI extends JFrame
 	 */
 	private void suma_elementow(JTable tabelka)//zrobione
 	{
-		uzyskany_rezultat_ta.append("Suma elementï¿½w wynosi: "+suma_elementoww( tabelka)+"\n");
+		uzyskany_rezultat_ta.append("Suma elementów wynosi: "+suma_elementoww( tabelka)+"\n");
 	}
 	
 	
@@ -1351,19 +1323,19 @@ public class GUI extends JFrame
 	/**
 	 * Metoda odppwiedzalna za wprowadzenie liczby do tabeli
 	 * @param nr_kolumny_sp obiekt typu JSpinner okre¶la do jakiej kolumny bêdzie dodana liczba
-	 * @param nr_wiersza_sp obiekt typu JSpinner okre¶la do jakiego wierszu bêdzie dodana liczba
+	 * @param nr_wiersza_sp2 obiekt typu JSpinner okre¶la do jakiego wierszu bêdzie dodana liczba
 	 */
-	private void dodaj(JSpinner nr_kolumny_sp, JSpinner nr_wiersza_sp, JTextField wprowadz_liczbe)//zrobione
+	private void dodaj(JSlider nr_kolumny_sp, JSlider nr_wiersza_sp2, JTextField wprowadz_liczbe)//zrobione
 	{
-		String odczyt_kolumny;
-		String odczyt_wiersza;
+		int odczyt_kolumny;
+		int odczyt_wiersza;
 		Integer liczba;
-		odczyt_kolumny = nr_kolumny_sp.getValue().toString();
-		odczyt_wiersza = nr_wiersza_sp.getValue().toString();
+		odczyt_kolumny = nr_kolumny_sp.getValue();
+		odczyt_wiersza = nr_wiersza_sp2.getValue();
 		try
 		{
 			liczba = Integer.parseInt(wprowadz_liczbe.getText());
-			tabelka.setValueAt(liczba.toString(), Integer.valueOf(odczyt_wiersza.toString()), Integer.valueOf(odczyt_kolumny.toString())-1);
+			tabelka.setValueAt(liczba.toString(), odczyt_wiersza, odczyt_kolumny-1);
 		}
 		catch(Exception ex)
 		{
@@ -1411,11 +1383,7 @@ public class GUI extends JFrame
 		wyzeruj_btn.addActionListener(arg0);
 	}
 	
-///////////////////////////////////////////////////////////////	
-	public void pokaz_wykres_jbn(ActionListener arg0)//zrobione
-	{
-		wykres.addActionListener(arg0);
-	}
+
 	
 	/**
 	 * Metoda odpwiedzalna za dodanie s³uchacza do przycisku "wypelnij_btn"
@@ -1674,7 +1642,7 @@ public class GUI extends JFrame
 		tabelka_C c = new tabelka_C(okno,m);
 		okno.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
 		okno.setVisible(true);
-		//okno.setVisible(true);
+
 	}
 
 }

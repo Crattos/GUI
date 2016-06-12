@@ -32,7 +32,7 @@ public class lista_M extends AbstractListModel
 	/**
 	 * Metoda odpowiedzalna za zwrócenie elementu z listy
 	 * @param index typu int jest odpowiedzalny za przekazanie wybranego nr indeksu
-	 * @return zwraca wartoœæ listy jako typ Object
+	 * @return zwraca warto¶æ listy jako typ Object
 	 */
 	public Object getElementAt(int index) 
 	{

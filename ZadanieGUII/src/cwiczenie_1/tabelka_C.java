@@ -17,8 +17,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 * -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
 */
 
-public class tabelka_C 
-{
+public class tabelka_C{
 	GUI VIEW;
 	tabelka_M MODEL;
 	Logger logger = Logger.getLogger("cwiczenie_1.tabelka_C");
@@ -33,15 +32,6 @@ public class tabelka_C
 		this.VIEW = VIEW;
 		this.MODEL = MODEL;
 		
-		this.VIEW.pokaz_wykres_jbn(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				new Chart();
-				
-			}
-		});
 		
 		this.VIEW.dodaj_do_tabeli_jbn(new ActionListener() 
 		{
@@ -51,15 +41,16 @@ public class tabelka_C
 			{
 				// TODO Auto-generated method stub
 				
-				String odczyt_kolumny;
-				String odczyt_wiersza;
+				int odczyt_kolumny;
+				int odczyt_wiersza;
 				Integer liczba;
-				odczyt_kolumny = VIEW.nr_kolumny_sp.getValue().toString();
-				odczyt_wiersza = VIEW.nr_wiersza_sp.getValue().toString();
+				odczyt_kolumny = VIEW.nr_kolumny_sp.getValue();
+				odczyt_wiersza = VIEW.nr_wiersza_sp.getValue();
+
 				try
 				{
 					liczba = Integer.parseInt(VIEW.wprowadz_liczbe.getText());
-					MODEL.setValueAt(liczba.toString(), Integer.valueOf(odczyt_wiersza.toString()), Integer.valueOf(odczyt_kolumny.toString())-1);
+					MODEL.setValueAt(liczba.toString(), odczyt_wiersza, odczyt_kolumny-1);
 				}
 				catch(Exception ex)
 				{
@@ -107,8 +98,8 @@ public class tabelka_C
 				}
 				catch(Exception ex)
 				{
-					logger.error("Blad podczas wype³niania tabeli podan¹ wartoœci¹");
-					//MojLoger.writeLog("ERROR", "Blad podczas wypeï¿½niania tabeli podanï¿½ wartoï¿½ciï¿½");
+					logger.error("Blad podczas wype³niania tabeli podan¹ warto¶ci±");
+					//MojLoger.writeLog("ERROR", "Blad podczas wype³niania tabeli");
 					JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
 					
 				}
@@ -159,7 +150,6 @@ public class tabelka_C
 					catch(Exception ex)
 					{
 						logger.error("B³±d podczas zapisu warto¶ci tabeli do pliku typu .txt");
-						//MojLoger.writeLog("ERROR", "Bï¿½ï¿½d podczas zapisu wartoï¿½ci tabeli do pliku typu .txt");
 						JOptionPane.showMessageDialog(VIEW, ex, "Ups", JOptionPane.OK_OPTION);
 					}
 				}

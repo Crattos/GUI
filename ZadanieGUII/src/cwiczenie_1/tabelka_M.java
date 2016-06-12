@@ -10,8 +10,7 @@ import javax.swing.table.AbstractTableModel;
 * -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
 */
 
-public class tabelka_M extends AbstractTableModel
-{
+public class tabelka_M extends AbstractTableModel{
 	private String[] cols = {"1","2","3","4","5"};
 	private Object[][] rows = {
 							{1,2,3,4,5},
@@ -75,8 +74,8 @@ public class tabelka_M extends AbstractTableModel
 
 	
 	/**
-	 * Metoda odpowiedzalna za ustawienie wartoœci w tabeli
-	 * @param value obiekt typu Object oznacza wartoœæ
+	 * Metoda odpowiedzalna za ustawienie warto¶ci w tabeli
+	 * @param value obiekt typu Object oznacza warto¶æ
 	 * @param r typu int oznacza numer wiersza
 	 * @param c typu int oznacza numer kolumny
 	 */
