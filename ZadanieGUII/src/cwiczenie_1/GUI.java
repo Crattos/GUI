@@ -24,6 +24,7 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -40,7 +41,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -50,8 +50,6 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.log4j.ConsoleAppender;
@@ -85,6 +83,8 @@ import com.l2fprod.common.swing.tips.DefaultTipModel;
 
 public class GUI extends JFrame{
 	
+	private static final long serialVersionUID = 1L;
+	int i=0;
 	JPanel contenerPanel;
 	JMenuBar menubar;
 	JMenu Plik_JMenu, Edytuj_JMenu, Widok_JMenu, Obliczenia_JMenu, Pomoc_JMenu;
@@ -94,6 +94,7 @@ public class GUI extends JFrame{
 	JMenuItem suma_JMenuItem, srednia_JMenuItem, max_JMenuItem, min_JMenuItem;
 	JMenuItem pomoc_JMenuItem, o_autorze_JMenuItem;
 	JToolBar Ikonki_Menu;
+	JTipOfTheDay porady;
 	
 	JPanel info_Panel;
 	JLabel info,status;
@@ -115,10 +116,10 @@ public class GUI extends JFrame{
 	JButton zapisz_btn;
 	JButton wykres;
 	
-	JList opcje_list;
-	JList lista;
+	JList<String> opcje_list;
+	JList<String> lista;
 	
-	JComboBox opcjeList;
+	JComboBox<String> opcjeList;
 	
 	
 	JPanel widok_tabeli;
@@ -126,7 +127,7 @@ public class GUI extends JFrame{
 	
 	JCalendarCombo kalendarz;
 	JButton oblicz_btn;
-	lista_M list_m ;
+	ListModel list_m ;
 	JSlider nr_wiersza;
 	
 	
@@ -514,9 +515,9 @@ public class GUI extends JFrame{
 	 */
 	private JCalendarCombo utworz_kalendarz(final JTextArea zapisz_do_jta)
 	{
+		
 		kalendarz = new JCalendarCombo();
-		kalendarz.addDateListener(new DateListener() 
-		{
+		kalendarz.addDateListener(new DateListener(){
 			public void dateChanged(DateEvent arg0) 
 			{
 				
@@ -533,8 +534,9 @@ public class GUI extends JFrame{
 				
 				// zapisanie danych w polu TextArea
 				
-				zapisz_do_jta.append("Data: "+data+"\n");
-				
+				if(i>0)
+					zapisz_do_jta.append("Data: "+data+"\n");
+				i++;
 			}
 		});
 		kalendarz.setBounds(265, 105, 90, 20);
@@ -550,19 +552,24 @@ public class GUI extends JFrame{
 	 */
 	private void porady_dnia()
 	{
-
+		
 		DefaultTipModel spis_porad = new DefaultTipModel();
+
 		//aby dodaæ poradê robimy tak
 		spis_porad.add(new DefaultTip("Porada 1","Porada nr 1"));
 		spis_porad.add(new DefaultTip("Porada 2","Porada nr 2"));
 		spis_porad.add(new DefaultTip("Porada 3","Porada nr 3"));
 		//i tak do n-porad, potem musimy spis podaæ jako parametr w tworzonym obiekcie
-		JTipOfTheDay porady = new JTipOfTheDay(spis_porad);
+		porady = new JTipOfTheDay(spis_porad);
 		//potem pozostaje nam pokazanie tego obiektu
+		
 		porady.showDialog(this);
 		
 		
+		
 	}
+	
+	
 	
 	
 	/**
@@ -631,7 +638,7 @@ public class GUI extends JFrame{
 	 * Metoda tworz±ca GUI ca³ej aplikacji. 
 	 * @param m obiekt który przechowuje funkcje tabeli utworzonej w aplkacji.
 	 */
-	private void utworz(tabelka_M m)//zrobione
+	private void utworz(TableModel m)//zrobione
 	{
 	
 		
@@ -682,8 +689,8 @@ public class GUI extends JFrame{
 		dane_do_listyy.add("Min");
 		dane_do_listyy.add("Max");
 		
-		list_m = new lista_M(dane_do_listyy);
-		lista = new JList(list_m);
+		list_m = new ListModel(dane_do_listyy);
+		lista = new JList<String>(list_m);
 		lista.setSelectedIndex(0);
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		scrollPane_1.setViewportView(lista);
@@ -837,7 +844,6 @@ public class GUI extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				new Chart(tabelka);
 			}
 		});
@@ -850,17 +856,9 @@ public class GUI extends JFrame{
 		
 		//Tworzy obiekt JSCrollPane, do wy¶wietlenia wyników
 		JScrollPane opcja_scrlp = new JScrollPane();
-		String[] nazwy = {"Wybierz opcjê",
-				"Suma elementów",
-				"¦rednia elementów",
-				"Warto¶æ max",
-				"Warto¶æ min"};
-		
-		//Tworzy obiekt typu Combo, aby zastosowaæ model MVC w JComboBox
-		Combo combo = new Combo();
-		opcjeList = new JComboBox(nazwy);
-		opcjeList.addActionListener(combo);
 
+		opcjeList = new JComboBox<String>();
+		
 		opcja_scrlp.setViewportView(opcjeList);
 		opcja_scrlp.setBounds(90, 175, 200, 30);
 		//srodkowy_layout.add(opcja_scrlp);		xqw
@@ -919,8 +917,8 @@ public class GUI extends JFrame{
 		srodkowy_layout.add(widok_kalendarza);
 		
 		contenerPanel.add(srodkowy_layout, BorderLayout.CENTER);
-		
-		
+		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		setVisible(true);
 		
 	}
 	
@@ -1168,11 +1166,11 @@ public class GUI extends JFrame{
 		aaa.add(new JLabel("Licencja: Freeware"));
 		O_Autorze.addWindowListener(new WindowAdapter() 
 		{		
-			@SuppressWarnings("deprecation")
+			
 			@Override
 			public void windowClosed(WindowEvent arg0) 
 			{
-				disable();
+				setEnabled(false);
 			}
 		});		
 	}
@@ -1532,7 +1530,7 @@ public class GUI extends JFrame{
 	 * wywo³anie funkcji "utworz()" tworz±cej GUI(Graficzny Interfejs U¿ytkownika)
 	 * 
 	 */
-	public GUI(final tabelka_M m)//konstruktor
+	public GUI(final TableModel m)//konstruktor
 	{
 		//Layout, do pliku z logami
 		PatternLayout patternLayout = new PatternLayout("%-5p : %d %m%n");
@@ -1541,7 +1539,7 @@ public class GUI extends JFrame{
 		try {
 			logs = new FileAppender(patternLayout,"logs.log");
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}	
 		//Dodanie zmiennych logs, consLogs do loggera
@@ -1614,7 +1612,7 @@ public class GUI extends JFrame{
 	            	
 	            	
 	            	utworz(m);
-	            	porady_dnia();
+	            	
 	            }
 	        });	
 		}
@@ -1624,26 +1622,33 @@ public class GUI extends JFrame{
 			
 			System.out.println("ERROR - Blad podczas tworzenia GUI aplikacji");
 		}
+		setVisible(true);
+		new TableController(this, m);
+		porady_dnia();
 		
-
 	}
+	
+	public void setMyListModel(ComboBoxModel<String> model) {
+		opcjeList.setModel(model);
+	  }
+   
+   
+   public Object getMyListSelectedValue() {
+	    return opcjeList.getSelectedIndex();
+	  }
+   
+   public void setMyListSelectedValue(Object value) {
+	   opcjeList.setSelectedIndex((int) value);
+	  }
 
 	
-	
-	
-	
-	
-	public static void main(String[] args) 
-	{
-
+	public static void main(String[] args){
+		new Controller();
 		
-		tabelka_M m = new tabelka_M();
-		GUI okno = new GUI(m);
-		tabelka_C c = new tabelka_C(okno,m);
-		okno.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-		okno.setVisible(true);
-
 	}
+	
+	
+
 
 }
 

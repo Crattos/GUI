@@ -49,9 +49,10 @@ public class Chart {
 					if(wartosc>0)
 						data.setValue("komórka:"+i+","+j,wartosc);
 					
-				}
+				}	
 			}
 
+		
 				// Tworzy wykres
 				JFreeChart chart = ChartFactory.createPieChart(
 										"Wykres ko³owy",

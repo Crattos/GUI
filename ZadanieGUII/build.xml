@@ -1,0 +1,88 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project default="Run-Project" name="Create Runnable Jar for Project ZadanieGUII with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="C:/Users/Patryk/workspace"/>
+    <property name="dir.jarfile" value="${dir.buildfile}/Libs/bin"/>
+    
+	<target name = "Clean">
+		<echo message = "Usuwanie zbednych czesci projektu..."/>
+		<delete dir = "bin" />
+		<delete dir = "doc" />
+		<delete dir = "dist" />	
+	</target>
+	
+	<target name = "Prepare" depends = "Clean" >
+		<echo message = "Przygotowanie struktury projektu..."/>
+		<mkdir dir = "bin"/>
+		<mkdir dir = "doc"/>
+		<mkdir dir = "dist"/>
+	</target>
+	
+	<target name = "Javadoc" depends = "Prepare">
+		<echo message = "Utworzenie dokumentacji javadoc..." />
+		<javadoc version="true" use="true" splitindex="true" 
+		sourcepath="src" source="1.7" packagenames="cwiczenie_1" 
+		notree="false" nonavbar="false" noindex="false" nodeprecatedlist="false" 
+		nodeprecated="false" destdir="doc" 
+		classpath="l2fprod-common-buttonbar.jar;jcalendar.jar;l2fprod-common-all.jar;log4j-1.2.11.jar;C:\Users\Patryk\Documents\Libs\jfreechart-1.0.19\lib\jfreechart-1.0.19.jar;C:\Users\Patryk\Documents\Libs\jcommon-1.0.23\jcommon-1.0.23.jar" author="true" access="public"/>
+	</target>
+	
+	<target name = "Compile-app" depends = "Javadoc">
+	<echo message = "Kompilacja pakietu app..." />
+		<javac srcdir = "src/cwiczenie_1" 
+			destdir = "bin"
+				classpath="l2fprod-common-buttonbar.jar;jcalendar.jar;l2fprod-common-all.jar;log4j-1.2.11.jar;C:\Users\Patryk\Documents\Libs\jfreechart-1.0.19\lib\jfreechart-1.0.19.jar;C:\Users\Patryk\Documents\Libs\jcommon-1.0.23\jcommon-1.0.23.jar" >
+
+		</javac>
+    </target>
+	
+	<target name="create_run_jar" depends = "Compile-app">
+	        <jar destfile="dist/gui.jar">
+	            <manifest>
+	                <attribute name="Main-Class" value="cwiczenie_1.GUI"/>
+	                <attribute name="Class-Path" value=". gui_lib/jcalendar.jar gui_lib/l2fprod-common-all.jar gui_lib/l2fprod-common-buttonbar.jar gui_lib/log4j-1.2.11.jar gui_lib/jfreechart-1.0.19.jar gui_lib/jcommon-1.0.23.jar"/>
+	            </manifest>
+	            <fileset dir="C:/Users/Patryk/git/GUI/ZadanieGUII/bin"/>
+	        </jar>
+	        <copy file="C:/Users/Patryk/git/GUI/ZadanieGUII/jcalendar.jar" todir="dist/gui_lib"/>
+	        <copy file="C:/Users/Patryk/git/GUI/ZadanieGUII/l2fprod-common-all.jar" todir="dist/gui_lib"/>
+	        <copy file="C:/Users/Patryk/git/GUI/ZadanieGUII/l2fprod-common-buttonbar.jar" todir="dist/gui_lib"/>
+	        <copy file="C:/Users/Patryk/git/GUI/ZadanieGUII/log4j-1.2.11.jar" todir="dist/gui_lib"/>
+	        <copy file="C:\Users\Patryk\Documents\Libs\jfreechart-1.0.19\lib\jfreechart-1.0.19.jar" todir="dist/gui_lib"/>
+	        <copy file="C:\Users\Patryk\Documents\Libs\jcommon-1.0.23\jcommon-1.0.23.jar" todir="dist/gui_lib"/>
+			<copy file="ikonka1.jpg" todir="dist"/>
+			<copy file="ikonka2.jpg" todir="dist"/>
+			<copy file="ikonka3.jpg" todir="dist"/>
+			<copy file="ikonka4.jpg" todir="dist"/>
+			<copy file="ikonka5.jpg" todir="dist"/>
+			<copy file="ikonka6.jpg" todir="dist"/>
+			<copy file="ikonka7.jpg" todir="dist"/>
+			<copy file="ikonka8.jpg" todir="dist"/>
+			<copy file="ikonka9.jpg" todir="dist"/>
+			<copy file="ikonka10.jpg" todir="dist"/>
+			<copy file="ikonka11.jpg" todir="dist"/>
+			<copy file="ikonka12.jpg" todir="dist"/>
+			<copy file="kalendarz.png" todir="dist"/>
+			<copy file="tabelka.png" todir="dist"/>
+	    </target>
+	
+	<target name = "Run-Project" depends = "create_run_jar">
+		<echo message = "Start aplikacji..." />
+		<java classname="cwiczenie_1.GUI" fork="true">
+		    <classpath id = "1">
+		
+			<pathelement path = "bin" />
+		    <pathelement location = "log4j-1.2.11.jar" />
+			<pathelement location = "jcalendar.jar" />
+			<pathelement location = "l2fprod-common-all.jar" />
+			<pathelement location = "l2fprod-common-buttonbar.jar" />
+			<pathelement location = "C:\Users\Patryk\Documents\Libs\jcommon-1.0.23\jcommon-1.0.23.jar" />
+		    <pathelement location = "C:\Users\Patryk\Documents\Libs\jfreechart-1.0.19\lib\jfreechart-1.0.19.jar" />
+		    </classpath>
+		</java>
+	    </target>	
+	
+</project>

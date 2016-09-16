@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.Random;
+
 import org.apache.log4j.*;
 
 import javax.swing.JFileChooser;
@@ -11,15 +13,15 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /** 
-* Klasa lista_M definiuje Listenery czyli tzw "s³uchacze"
+* Klasa TableController definiuje Listenery czyli tzw "s³uchacze"
 * @author Patryk Miler	 	
 * @version 1.0	16/05/2016
 * -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
 */
 
-public class tabelka_C{
+public class TableController{
 	GUI VIEW;
-	tabelka_M MODEL;
+	TableModel MODEL;
 	Logger logger = Logger.getLogger("cwiczenie_1.tabelka_C");
 	
 	/**
@@ -27,7 +29,7 @@ public class tabelka_C{
 	 * @param VIEW obiekt klasy GUI 
 	 * @param MODEL obiekt klasy tabelka_M
 	 */
-	public tabelka_C(final GUI VIEW, final tabelka_M MODEL)
+	public TableController(final GUI VIEW, final TableModel MODEL)
 	{
 		this.VIEW = VIEW;
 		this.MODEL = MODEL;
@@ -39,8 +41,6 @@ public class tabelka_C{
 			@Override
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				// TODO Auto-generated method stub
-				
 				int odczyt_kolumny;
 				int odczyt_wiersza;
 				Integer liczba;
@@ -91,9 +91,15 @@ public class tabelka_C{
 					{
 						for(int j = 0; j < MODEL.getColumnCount(); j++)
 						{
+							if(!(VIEW.wprowadz_liczbe.getText().equals("0"))){
 							MODEL.setValueAt(Integer.parseInt(VIEW.wprowadz_liczbe.getText()), Integer.valueOf(i), Integer.valueOf(j));
-						}
 						
+							}else{
+								Random randomGenerator = new Random();
+								int randomInt = randomGenerator.nextInt(100);
+								MODEL.setValueAt(randomInt, Integer.valueOf(i), Integer.valueOf(j));
+							}
+						}
 					}
 				}
 				catch(Exception ex)

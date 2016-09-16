@@ -4,13 +4,17 @@ import javax.swing.table.AbstractTableModel;
 
 
 /** 
-* Klasa tabelka_M definiuje metody tabeli abstrakcyjnej
+* Klasa TableModel definiuje metody tabeli abstrakcyjnej
 * @author Patryk Miler	 	
 * @version 1.0	16/05/2016
 * -encoding UTF-8 -charset UTF-8 -docencoding UTF-8
 */
 
-public class tabelka_M extends AbstractTableModel{
+public class TableModel extends AbstractTableModel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String[] cols = {"1","2","3","4","5"};
 	private Object[][] rows = {
 							{1,2,3,4,5},
@@ -23,7 +27,7 @@ public class tabelka_M extends AbstractTableModel{
 	/**
 	 * Konstruktor domy¶lny
 	 */
-	public tabelka_M()//konstruktor
+	public TableModel()//konstruktor
 	{
 
 	}
